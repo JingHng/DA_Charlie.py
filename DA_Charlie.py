@@ -1,0 +1,26 @@
+import requests
+
+r = requests.get('https://www.google.com/')
+
+print("Status code:")
+print("\t *", r.status_code)
+
+
+h = requests.head('https://www.google.com/')
+print("Header:")
+print("**********")
+# To print line by line
+for x in h.headers:
+    print("\t ", x, ":", h.headers[x])
+print("**********")
+
+headers = {
+    'User-Agent' : 'Mobile'
+}
+# Test it on an external site
+url2 = 'http://httpbin.org/headers'
+rh = requests.get(url2, headers=headers)
+print(rh.text)
+
+
+
