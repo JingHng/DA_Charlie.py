@@ -1,11 +1,11 @@
 import requests
 
-r = requests.get('http://172.18.58.238/')
+r = requests.get('https://www.google.com/')
 
 print("Status code:")
 print("\t *", r.status_code)
 
-h = requests.head('http://172.18.58.238/')
+h = requests.head('https://www.google.com/')
 print("Header:")
 print("**********")
 # To print line by line
@@ -29,7 +29,7 @@ class ProjectSpider(scrapy.Spider):
     name = "Project"
 
     start_urls = [
-        'http://172.18.58.238/']
+        'https://www.google.com/']
 
     def parse(self, response):
         css_selector = 'img'
@@ -38,9 +38,21 @@ class ProjectSpider(scrapy.Spider):
             yield {
                 'Image Link': x.xpath(newsel).extract_first(),
         }
+# Unit Testing code
 
+import unittest
 
+class TestMyProgram(unittest.TestCase):
 
+    def test_upper(self):
+        self.assertEqual('foo'.upper(), 'FOO')
+
+    def test_isupper(self):
+        self.assertTrue('FOO'.isupper())
+        self.assertFalse('Foo'.isupper())
+
+if __name__ == '__main__':
+    unittest.main()
 
 
 
