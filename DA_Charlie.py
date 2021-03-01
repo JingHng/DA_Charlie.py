@@ -1,11 +1,11 @@
 import requests
 
-r = requests.get('https://www.google.com/')
+r = requests.get('http://172.18.58.238/')
 
 print("Status code:")
 print("\t *", r.status_code)
 
-h = requests.head('https://www.google.com/')
+h = requests.head('http://172.18.58.238/')
 print("Header:")
 print("**********")
 # To print line by line
@@ -29,7 +29,7 @@ class ProjectSpider(scrapy.Spider):
     name = "Project"
 
     start_urls = [
-        'https://www.google.com/']
+        'http://172.18.58.238/']
 
     def parse(self, response):
         css_selector = 'img'
